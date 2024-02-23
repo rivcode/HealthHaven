@@ -1,0 +1,68 @@
+<!-- frontend/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Haven</title>
+</head>
+<body>
+  <h1>Health Haven</h1>
+  <h2>Charity Care Eligibility Check</h2>
+  <form id="eligibility-form">
+    <label for="annual-income">Annual Income:</label>
+    <input type="number" id="annual-income" name="annual-income" required><br><br>
+    <label for="insurance-status">Insurance Status:</label>
+    <select id="insurance-status" name="insurance-status" required>
+      <option value="uninsured">Uninsured</option>
+      <option value="underinsured">Underinsured</option>
+      <option value="fully-insured">Fully Insured</option>
+    </select><br><br>
+    <button type="submit">Check Eligibility</button>
+  </form>
+
+  <div id="results"></div>
+
+  <script>
+    document.getElementById('eligibility-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const annualIncome = document.getElementById('annual-income').value;
+      const insuranceStatus = document.getElementById('insurance-status').value;
+
+      try {
+        const response = await fetch('/charity-care-check', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ annualIncome, insuranceStatus })
+        });
+
+        const data = await response.json();
+        displayResults(data.eligiblePrograms);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    });
+
+    function displayResults(programs) {
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = '';
+
+      if (programs.length === 0) {
+        resultsDiv.textContent = 'No eligible programs found.';
+      } else {
+        const ul = document.createElement('ul');
+        programs.forEach(program => {
+          const li = document.createElement('li');
+          li.textContent = `Hospital: ${program.hospital}, Criteria: ${program.eligibilityCriteria}, Assistance: ${program.applicationAssistance}`;
+          ul.appendChild(li);
+        });
+        resultsDiv.appendChild(ul);
+      }
+    }
+  </script>
+</body>
+</html>
