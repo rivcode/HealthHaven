@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Health Haven - Charity Care Eligibility Check</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
 </head>
 <body>
   <header>
@@ -15,13 +16,30 @@
         <li><a href="index.html">Back to Home</a></li>
         <li><a href="transparency.html">Cost Transparency Tool</a></li>
         <li><a href="crowdfunding.html">Crowdfunding</a></li>
+        <li><button class="language-button">Change Language</button></li>
+        <li><button class="text-to-speech-button">Enable Text-to-Speech</button></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <!-- Charity care eligibility check form (similar to the previous code) -->
-    <!-- You can paste the form from the previous code snippet here -->
+    <h2>Charity Care Eligibility Check</h2>
+    <form id="eligibility-form">
+      <label for="annual-income">Annual Income:</label>
+      <input type="number" id="annual-income" name="annual-income" required><br><br>
+      <label for="insurance-status">Insurance Status:</label>
+      <select id="insurance-status" name="insurance-status" required>
+        <option value="uninsured">Uninsured</option>
+        <option value="underinsured">Underinsured</option>
+        <option value="fully-insured">Fully Insured</option>
+      </select><br><br>
+      <button type="submit">Check Eligibility</button>
+    </form>
+
+    <!-- Display eligibility status -->
+    <div id="eligibility-status"></div>
   </main>
+
+  <script src=""C:\Users\nrvs1\OneDrive\Desktop\HealthHaven-main\eligibility.js""></script> <!-- Link to JavaScript file for form submission -->
 </body>
 </html>
