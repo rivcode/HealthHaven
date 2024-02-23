@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Health Haven - Cost Transparency Tool</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
 </head>
 <body>
   <header>
@@ -15,13 +16,29 @@
         <li><a href="index.html">Back to Home</a></li>
         <li><a href="eligibility.html">Charity Care Eligibility Check</a></li>
         <li><a href="crowdfunding.html">Crowdfunding</a></li>
+	<li><button class="language-button">Change Language</button></li>
+        <li><button class="text-to-speech-button">Enable Text-to-Speech</button></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <!-- Cost transparency tool content goes here -->
-    <!-- You can add a form or information about the cost transparency tool -->
+    <h2>Cost Transparency Tool</h2>
+    <form id="cost-form">
+      <label for="procedure">Medical Procedure:</label>
+      <input type="text" id="procedure" name="procedure" required><br><br>
+      <label for="insurance">Insurance Provider:</label>
+      <input type="text" id="insurance" name="insurance"><br><br>
+      <label for="location">Location:</label>
+      <input type="text" id="location" name="location" required><br><br>
+      <button type="submit">Estimate Costs</button>
+    </form>
+
+    <!-- Display estimated costs -->
+    <div id="cost-estimate"></div>
   </main>
+
+  <script src="cost-transparency.js"></script> <!-- Link to JavaScript file for form submission -->
 </body>
 </html>
+
