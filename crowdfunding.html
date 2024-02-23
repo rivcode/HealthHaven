@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Health Haven - Crowdfunding</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
 </head>
 <body>
   <header>
@@ -15,13 +16,22 @@
         <li><a href="index.html">Back to Home</a></li>
         <li><a href="eligibility.html">Charity Care Eligibility Check</a></li>
         <li><a href="transparency.html">Cost Transparency Tool</a></li>
+	<li><button class="language-button">Change Language</button></li>
+        <li><button class="text-to-speech-button">Enable Text-to-Speech</button></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <!-- Crowdfunding content goes here -->
-    <!-- You can add information about crowdfunding or a form for users to start a campaign -->
+    <h2>Crowdfunding</h2>
+    <p>Support those in need by making a donation:</p>
+    <div id="donation-section">
+      <input type="number" id="donation-amount" placeholder="Enter amount" style="width: 300px;">
+      <button id="donate-button">
+        <img src="donation-icon.png" alt="Donate" style="width: 50px; height: 50px;">
+      </button>
+    </div>
   </main>
 </body>
 </html>
+
